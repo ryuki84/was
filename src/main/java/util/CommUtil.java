@@ -32,7 +32,7 @@ public class CommUtil {
 	 * @throws Exception
 	 */
 	public static String getIndexFile() throws Exception{
-		prop.load(new FileInputStream("./src/webapp/WEB-INF/setting.conf"));
+		prop.load(new FileInputStream("./webapp/WEB-INF/setting.conf"));
 		DEFAULT_INDEX_FILE = prop.getProperty("INDEX_FILE");
 		return DEFAULT_INDEX_FILE;
 	}
@@ -41,7 +41,7 @@ public class CommUtil {
 	 * @return port 
 	 */
 	public static int getServerProt() throws Exception{
-		prop.load(new FileInputStream("./src/webapp/WEB-INF/setting.conf"));
+		prop.load(new FileInputStream("./webapp/WEB-INF/setting.conf"));
 		port = Integer.parseInt(prop.getProperty("port"));
 		 if (port < 0 || port > 65535){
 			 port  = 8080;
@@ -74,7 +74,7 @@ public class CommUtil {
 				// 기본URL 이거나 /favicon.ico 가 들어올 경우 기본페이지로 넘긴다.
 				if("/".equals(url) || "/favicon.ico".equals(url)){
 					url = CommUtil.getIndexFile();		// Default page, index.html로 이동.
-					bodyData = Files.readAllBytes(new File("./src/webapp"+url).toPath());
+					bodyData = Files.readAllBytes(new File("./webapp"+url).toPath());
 					sendHeader(writer, "HTTP/1.0 200 OK", contentType, bodyData.length);
 				}
 				// url 입력이 있을 경우.
@@ -82,7 +82,7 @@ public class CommUtil {
 					// url 이 main일 경우
 					if("/main".equals(url)){
 						url = simpleServletImpl.getMainPage();	
-						bodyData = Files.readAllBytes(new File("./src/webapp"+url).toPath());
+						bodyData = Files.readAllBytes(new File("./webapp"+url).toPath());
 						sendHeader(writer, "HTTP/1.0 200 OK", contentType, bodyData.length);
 					}
 					// url 이 now 경우.
@@ -95,16 +95,16 @@ public class CommUtil {
 					else{
 						File file = new File("./src/webapp"+url);
 						if(!file.exists()){
-							bodyData = Files.readAllBytes(new File("./src/webapp/error/404.html").toPath());
+							bodyData = Files.readAllBytes(new File("./webapp/error/404.html").toPath());
 							sendHeader(writer, "HTTP/1.0 404 File Not Found", contentType, bodyData.length);
 						}else{
-							bodyData = Files.readAllBytes(new File("./src/webapp" + url).toPath());
+							bodyData = Files.readAllBytes(new File("./webapp" + url).toPath());
 							sendHeader(writer, "HTTP/1.0 200 OK", contentType, bodyData.length);
 						}
 					}
 				}
 			} else{
-				bodyData = Files.readAllBytes(new File("./src/webapp/error/501.html").toPath());
+				bodyData = Files.readAllBytes(new File("./webapp/error/501.html").toPath());
 				sendHeader(writer, "HTTP/1.0 501 Not Implemented", contentType, bodyData.length);
 			}
 			

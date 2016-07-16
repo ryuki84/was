@@ -1,28 +1,24 @@
 package util;
 
-import org.junit.Assert;
+import static org.junit.Assert.*;
+
 import org.junit.Test;
 
 public class CommUtilTest {
+
 	@Test
 	public void testGetIndexFile() {
-		Assert.fail("FAIL.");
+		fail("Not yet implemented");
 	}
-	
-	
+
 	@Test
-	public void testGetServerPort() {
-		Assert.fail("FAIL.");
+	public void testGetServerProt() {
+		fail("Not yet implemented");
 	}
-	
+
 	@Test
 	public void testGetHttpData() {
-		Assert.fail("FAIL.");
+		fail("Not yet implemented");
 	}
-	
-	@Test 
-	public void testSendHeader(){
-		Assert.fail("FAIL.");
-	}
-	
+
 }

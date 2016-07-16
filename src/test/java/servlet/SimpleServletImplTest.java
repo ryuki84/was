@@ -1,16 +1,19 @@
 package servlet;
 
-import org.junit.Assert;
+import static org.junit.Assert.*;
+
 import org.junit.Test;
 
 public class SimpleServletImplTest {
+
 	@Test
-	public void getMainPage() {
-		Assert.fail("FAIL.");
+	public void testGetMainPage() {
+		fail("Not yet implemented");
 	}
-	
+
 	@Test
-	public void getNowDateTime() {
-		Assert.fail("FAIL.");
+	public void testGetNowDateTime() {
+		fail("Not yet implemented");
 	}
+
 }

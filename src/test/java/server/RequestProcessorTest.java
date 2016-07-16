@@ -1,18 +1,18 @@
-package servlet;
+package server;
 
 import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-public class SimpleServletTest {
+public class RequestProcessorTest {
 
 	@Test
-	public void testGetMainPage() {
+	public void testRun() {
 		fail("Not yet implemented");
 	}
 
 	@Test
-	public void testGetNowDateTime() {
+	public void testRequestProcessor() {
 		fail("Not yet implemented");
 	}
 
